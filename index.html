@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Clarck Role Play</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Tahoma, Arial, sans-serif;
+            background: #080d18;
+            color: white;
+        }
+
+        header {
+            padding: 25px 15px;
+            text-align: center;
+            background: #111a2d;
+            border-bottom: 3px solid #00aaff;
+        }
+
+        header h1 {
+            color: #00aaff;
+            font-size: 29px;
+            margin: 5px;
+        }
+
+        header p {
+            color: #c8d5e8;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 22px;
+            padding: 18px 10px;
+            background: #0d1423;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #00aaff;
+        }
+
+        .hero {
+            padding: 65px 18px;
+            text-align: center;
+            background:
+                radial-gradient(
+                    circle at top,
+                    #17315a,
+                    #080d18 75%
+                );
+        }
+
+        .hero h2 {
+            color: #00aaff;
+            font-size: 29px;
+        }
+
+        .hero p {
+            line-height: 2.2;
+            color: #d0d9e8;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 14px 22px;
+            margin: 10px 5px;
+            border: none;
+            border-radius: 9px;
+            background: #008cff;
+            color: white;
+            font-size: 15px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .button:hover {
+            background: #006dcc;
+            transform: translateY(-2px);
+        }
+
+        .shop-button {
+            background: #00a878;
+        }
+
+        .shop-button:hover {
+            background: #00885f;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: auto;
+            padding: 20px 15px;
+        }
+
+        .card {
+            background: #121c30;
+            border: 1px solid #263754;
+            border-radius: 15px;
+            padding: 25px 16px;
+            margin: 22px 0;
+            text-align: center;
+        }
+
+        .card h2 {
+            color: #00aaff;
+            margin-top: 0;
+        }
+
+        .ip {
+            direction: ltr;
+            color: #00ff9d;
+            font-size: 19px;
+            font-weight: bold;
+            overflow-wrap: anywhere;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(125px, 1fr)
+            );
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .feature {
+            padding: 20px 8px;
+            background: #1b2941;
+            border-radius: 10px;
+            color: #e5edfa;
+        }
+
+        .shop-text {
+            line-height: 2;
+            color: #d0d9e8;
+        }
+
+        footer {
+            padding: 28px 12px;
+            text-align: center;
+            background: #0d1423;
+            border-top: 2px solid #00aaff;
+            color: #aab9d0;
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        #message {
+            color: #00ff9d;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- سربرگ سایت -->
+    <header>
+        <h1>CLARCK ROLE PLAY</h1>
+        <p>دنیای واقعی رول پلی، شروع یک زندگی جدید!</p>
+    </header>
+
+    <!-- منوی سایت -->
+    <nav>
+        <a href="#home">صفحه اصلی</a>
+        <a href="#server">اطلاعات سرور</a>
+        <a href="#features">امکانات</a>
+        <a href="#shop">فروشگاه</a>
+    </nav>
+
+    <!-- صفحه اصلی -->
+    <section class="hero" id="home">
+
+        <h2>به دنیای Clarck خوش آمدید!</h2>
+
+        <p>
+            شخصیت خودت رو بساز،
+            وارد دنیای رول پلی شو
+            و داستان خودت رو شروع کن.
+        </p>
+
+        <a class="button" href="#server">
+            🎮 مشاهده سرور
+        </a>
+
+        <a class="button shop-button"
+           href="https://panel.extormsamp.ir/clarcksampir"
+           target="_blank"
+           rel="noopener noreferrer">
+            🛒 ورود به فروشگاه
+        </a>
+
+    </section>
+
+    <main class="container">
+
+        <!-- اطلاعات سرور -->
+        <section class="card" id="server">
+
+            <h2>🎮 اطلاعات سرور</h2>
+
+            <p>آی‌پی سرور SA-MP</p>
+
+            <p class="ip" id="serverIP">
+                Play.SampSv.IR:7413
+            </p>
+
+            <button class="button" onclick="copyIP()">
+                📋 کپی آی‌پی سرور
+            </button>
+
+            <p id="message"></p>
+
+        </section>
+
+        <!-- امکانات -->
+        <section class="card" id="features">
+
+            <h2>⭐ امکانات سرور</h2>
+
+            <div class="features">
+
+                <div class="feature">
+                    🎭
+                    <p>رول پلی</p>
+                </div>
+
+                <div class="feature">
+                    🚘
+                    <p>ماشین‌ها</p>
+                </div>
+
+                <div class="feature">
+                    👥
+                    <p>خانواده‌ها</p>
+                </div>
+
+                <div class="feature">
+                    🏙️
+                    <p>زندگی شهری</p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- فروشگاه -->
+        <section class="card" id="shop">
+
+            <h2>🛒 فروشگاه Clarck</h2>
+
+            <p class="shop-text">
+                برای مشاهده فروشگاه و امکانات خرید سرور،
+                روی دکمه زیر بزن.
+            </p>
+
+            <a class="button shop-button"
+               href="https://panel.extormsamp.ir/clarcksampir"
+               target="_blank"
+               rel="noopener noreferrer">
+                ورود به فروشگاه
+            </a>
+
+        </section>
+
+    </main>
+
+    <!-- پایین سایت -->
+    <footer>
+
+        <h3>CLARCK ROLE PLAY</h3>
+
+        <p>
+            به خانواده بزرگ کلرک رول پلی خوش آمدید.
+        </p>
+
+        <p>
+            © Clarck Role Play
+        </p>
+
+    </footer>
+
+    <script>
+        function copyIP() {
+            const ip = "Play.SampSv.IR:7413";
+
+            if (navigator.clipboard &&
+                window.isSecureContext) {
+
+                navigator.clipboard.writeText(ip)
+                    .then(function () {
+                        document.getElementById("message")
+                            .textContent = "آی‌پی کپی شد!";
+                    })
+                    .catch(function () {
+                        showIP(ip);
+                    });
+
+            } else {
+                showIP(ip);
+            }
+        }
+
+        function showIP(ip) {
+            document.getElementById("message")
+                .textContent = "آی‌پی سرور: " + ip;
+        }
+    </script>
+
+</body>
+</html>
