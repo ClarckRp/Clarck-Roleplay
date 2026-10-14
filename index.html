@@ -1,332 +1,710 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b0d13">
+<title>Clarck Role Play | سرور سمپ</title>
 
-    <title>Clarck Role Play</title>
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+:root {
+    --gold: #f5bd4f;
+    --bg: #0b0d13;
+    --panel: #151a25;
+    --muted: #aab1c2;
+}
 
-        html {
-            scroll-behavior: smooth;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        body {
-            margin: 0;
-            font-family: Tahoma, Arial, sans-serif;
-            background: #080d18;
-            color: white;
-        }
+body {
+    background: var(--bg);
+    color: white;
+    font-family: Tahoma, Arial, sans-serif;
+    line-height: 1.8;
+}
 
-        header {
-            padding: 25px 15px;
-            text-align: center;
-            background: #111a2d;
-            border-bottom: 3px solid #00aaff;
-        }
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
-        header h1 {
-            color: #00aaff;
-            font-size: 29px;
-            margin: 5px;
-        }
+.container {
+    width: 92%;
+    max-width: 1150px;
+    margin: auto;
+}
 
-        header p {
-            color: #c8d5e8;
-        }
+header {
+    background: #10131bf5;
+    border-bottom: 1px solid #292e3b;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
 
-        nav {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 22px;
-            padding: 18px 10px;
-            background: #0d1423;
-        }
+nav {
+    min-height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
 
-        nav a {
-            text-decoration: none;
-            color: white;
-            font-size: 14px;
-        }
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: bold;
+    font-size: 16px;
+}
 
-        nav a:hover {
-            color: #00aaff;
-        }
+.logo-icon {
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, #ffdf91, #b77918);
+    color: #17120a;
+    border-radius: 13px;
+    font-size: 25px;
+}
 
-        .hero {
-            padding: 65px 18px;
-            text-align: center;
-            background:
-                radial-gradient(
-                    circle at top,
-                    #17315a,
-                    #080d18 75%
-                );
-        }
+.logo small {
+    display: block;
+    color: var(--muted);
+    font-size: 10px;
+}
 
-        .hero h2 {
-            color: #00aaff;
-            font-size: 29px;
-        }
+.nav-links {
+    display: flex;
+    gap: 20px;
+    font-size: 13px;
+}
 
-        .hero p {
-            line-height: 2.2;
-            color: #d0d9e8;
-        }
+.nav-links a:hover {
+    color: var(--gold);
+}
 
-        .button {
-            display: inline-block;
-            padding: 14px 22px;
-            margin: 10px 5px;
-            border: none;
-            border-radius: 9px;
-            background: #008cff;
-            color: white;
-            font-size: 15px;
-            text-decoration: none;
-            cursor: pointer;
-            transition: 0.2s;
-        }
+.btn {
+    display: inline-block;
+    padding: 11px 17px;
+    border-radius: 9px;
+    font-weight: bold;
+    font-size: 13px;
+    cursor: pointer;
+    border: none;
+}
 
-        .button:hover {
-            background: #006dcc;
-            transform: translateY(-2px);
-        }
+.btn-gold {
+    background: var(--gold);
+    color: #17120a;
+}
 
-        .shop-button {
-            background: #00a878;
-        }
+.btn-outline {
+    border: 1px solid #555b69;
+    color: white;
+    background: transparent;
+}
 
-        .shop-button:hover {
-            background: #00885f;
-        }
+.hero {
+    padding: 80px 0;
+    background:
+        radial-gradient(ellipse at 80% 20%, #a66e2630, transparent 40%),
+        linear-gradient(135deg, #141925, #0b0d13);
+}
 
-        .container {
-            max-width: 850px;
-            margin: auto;
-            padding: 20px 15px;
-        }
+.hero-content {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 40px;
+    align-items: center;
+}
 
-        .card {
-            background: #121c30;
-            border: 1px solid #263754;
-            border-radius: 15px;
-            padding: 25px 16px;
-            margin: 22px 0;
-            text-align: center;
-        }
+.badge {
+    display: inline-block;
+    padding: 6px 12px;
+    color: var(--gold);
+    border: 1px solid #f5bd4f55;
+    border-radius: 30px;
+    font-size: 12px;
+}
 
-        .card h2 {
-            color: #00aaff;
-            margin-top: 0;
-        }
+h1 {
+    font-size: clamp(34px, 5vw, 60px);
+    line-height: 1.4;
+    margin: 20px 0;
+}
 
-        .ip {
-            direction: ltr;
-            color: #00ff9d;
-            font-size: 19px;
-            font-weight: bold;
-            overflow-wrap: anywhere;
-        }
+h1 span {
+    color: var(--gold);
+}
 
-        .features {
-            display: grid;
-            grid-template-columns: repeat(
-                auto-fit,
-                minmax(125px, 1fr)
-            );
-            gap: 12px;
-            margin-top: 20px;
-        }
+.hero p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 2.2;
+}
 
-        .feature {
-            padding: 20px 8px;
-            background: #1b2941;
-            border-radius: 10px;
-            color: #e5edfa;
-        }
+.buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
 
-        .shop-text {
-            line-height: 2;
-            color: #d0d9e8;
-        }
+.server-card {
+    background: linear-gradient(145deg, #202637, #121620);
+    border: 1px solid #343b4c;
+    border-radius: 20px;
+    padding: 27px;
+    box-shadow: 0 20px 60px #0005;
+}
 
-        footer {
-            padding: 28px 12px;
-            text-align: center;
-            background: #0d1423;
-            border-top: 2px solid #00aaff;
-            color: #aab9d0;
-            font-size: 13px;
-            line-height: 2;
-        }
+.server-logo {
+    width: 65px;
+    height: 65px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, #ffdf91, #b77918);
+    color: #17120a;
+    border-radius: 18px;
+    font-size: 30px;
+    font-weight: bold;
+}
 
-        #message {
-            color: #00ff9d;
-        }
-    </style>
+.server-card h2 {
+    margin-top: 20px;
+    font-size: 24px;
+}
+
+.subtitle {
+    color: var(--muted);
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.ip-box {
+    background: #090b10;
+    border: 1px solid #343b4c;
+    padding: 12px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    direction: ltr;
+}
+
+.ip-box code {
+    color: var(--gold);
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.copy-btn {
+    padding: 8px 10px;
+    border: none;
+    border-radius: 6px;
+    background: #303748;
+    color: white;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.stat {
+    background: #ffffff08;
+    border: 1px solid #ffffff12;
+    border-radius: 10px;
+    text-align: center;
+    padding: 12px 5px;
+}
+
+.stat strong {
+    display: block;
+    color: var(--gold);
+    font-size: 17px;
+}
+
+.stat small {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+section {
+    padding: 70px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-title span {
+    color: var(--gold);
+    font-size: 12px;
+}
+
+.section-title h2 {
+    font-size: 32px;
+    margin: 8px 0;
+}
+
+.section-title p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 17px;
+}
+
+.feature {
+    background: var(--panel);
+    border: 1px solid #2b3242;
+    padding: 23px;
+    border-radius: 15px;
+    transition: .2s;
+}
+
+.feature:hover {
+    transform: translateY(-4px);
+    border-color: var(--gold);
+}
+
+.feature .icon {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.feature h3 {
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.feature p {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 2;
+}
+
+.join-box {
+    background: linear-gradient(120deg, #1c202b, #151923);
+    border: 1px solid #5a482a;
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.join-box h2 {
+    font-size: 25px;
+}
+
+.join-box p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.shop-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.shop-card {
+    background: var(--panel);
+    border: 1px solid #2b3242;
+    border-radius: 15px;
+    padding: 23px;
+}
+
+.shop-card h3 {
+    margin-bottom: 8px;
+}
+
+.shop-card p {
+    color: var(--muted);
+    font-size: 12px;
+    margin-bottom: 18px;
+}
+
+.faq {
+    max-width: 800px;
+    margin: auto;
+}
+
+details {
+    background: var(--panel);
+    border: 1px solid #2b3242;
+    border-radius: 12px;
+    padding: 17px;
+    margin-bottom: 12px;
+}
+
+summary {
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+details p {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 12px;
+}
+
+footer {
+    border-top: 1px solid #292e3b;
+    padding: 25px 0;
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+footer strong {
+    color: var(--gold);
+}
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gold);
+    color: #17120a;
+    padding: 10px 18px;
+    border-radius: 9px;
+    font-size: 12px;
+    font-weight: bold;
+    display: none;
+    z-index: 200;
+}
+
+.toast.show {
+    display: block;
+}
+
+@media (max-width: 800px) {
+    .nav-links {
+        display: none;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+    }
+
+    .features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .join-box {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 520px) {
+    .features,
+    .shop-grid {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 50px 0;
+    }
+
+    .section-title h2 {
+        font-size: 26px;
+    }
+
+    .server-card {
+        padding: 20px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <!-- سربرگ سایت -->
-    <header>
-        <h1>CLARCK ROLE PLAY</h1>
-        <p>دنیای واقعی رول پلی، شروع یک زندگی جدید!</p>
-    </header>
-
-    <!-- منوی سایت -->
-    <nav>
-        <a href="#home">صفحه اصلی</a>
-        <a href="#server">اطلاعات سرور</a>
-        <a href="#features">امکانات</a>
-        <a href="#shop">فروشگاه</a>
-    </nav>
-
-    <!-- صفحه اصلی -->
-    <section class="hero" id="home">
-
-        <h2>به دنیای Clarck خوش آمدید!</h2>
-
-        <p>
-            شخصیت خودت رو بساز،
-            وارد دنیای رول پلی شو
-            و داستان خودت رو شروع کن.
-        </p>
-
-        <a class="button" href="#server">
-            🎮 مشاهده سرور
-        </a>
-
-        <a class="button shop-button"
-           href="https://panel.extormsamp.ir/clarcksampir"
-           target="_blank"
-           rel="noopener noreferrer">
-            🛒 ورود به فروشگاه
-        </a>
-
-    </section>
-
-    <main class="container">
-
-        <!-- اطلاعات سرور -->
-        <section class="card" id="server">
-
-            <h2>🎮 اطلاعات سرور</h2>
-
-            <p>آی‌پی سرور SA-MP</p>
-
-            <p class="ip" id="serverIP">
-                Play.SampSv.IR:7413
-            </p>
-
-            <button class="button" onclick="copyIP()">
-                📋 کپی آی‌پی سرور
-            </button>
-
-            <p id="message"></p>
-
-        </section>
-
-        <!-- امکانات -->
-        <section class="card" id="features">
-
-            <h2>⭐ امکانات سرور</h2>
-
-            <div class="features">
-
-                <div class="feature">
-                    🎭
-                    <p>رول پلی</p>
-                </div>
-
-                <div class="feature">
-                    🚘
-                    <p>ماشین‌ها</p>
-                </div>
-
-                <div class="feature">
-                    👥
-                    <p>خانواده‌ها</p>
-                </div>
-
-                <div class="feature">
-                    🏙️
-                    <p>زندگی شهری</p>
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- فروشگاه -->
-        <section class="card" id="shop">
-
-            <h2>🛒 فروشگاه Clarck</h2>
-
-            <p class="shop-text">
-                برای مشاهده فروشگاه و امکانات خرید سرور،
-                روی دکمه زیر بزن.
-            </p>
-
-            <a class="button shop-button"
-               href="https://panel.extormsamp.ir/clarcksampir"
-               target="_blank"
-               rel="noopener noreferrer">
-                ورود به فروشگاه
+<header>
+    <div class="container">
+        <nav>
+            <a href="#home" class="logo">
+                <span class="logo-icon">C</span>
+                <span>
+                    CLARCK ROLE PLAY
+                    <small>YOUR STORY. YOUR CITY.</small>
+                </span>
             </a>
 
-        </section>
+            <div class="nav-links">
+                <a href="#home">خانه</a>
+                <a href="#features">امکانات</a>
+                <a href="#join">ورود به سرور</a>
+                <a href="#shop">فروشگاه</a>
+                <a href="#faq">سؤالات</a>
+            </div>
 
-    </main>
+            <a class="btn btn-gold" href="#join">شروع بازی</a>
+        </nav>
+    </div>
+</header>
 
-    <!-- پایین سایت -->
-    <footer>
+<main>
 
-        <h3>CLARCK ROLE PLAY</h3>
+<section class="hero" id="home">
+    <div class="container hero-content">
 
-        <p>
-            به خانواده بزرگ کلرک رول پلی خوش آمدید.
-        </p>
+        <div>
+            <span class="badge">● دنیای رول‌پلی آمادهٔ شروع</span>
 
-        <p>
-            © Clarck Role Play
-        </p>
+            <h1>
+                داستانت رو بساز<br>
+                در <span>Clarck Role Play</span>
+            </h1>
 
-    </footer>
+            <p>
+                به شهر کلرک خوش اومدی! شخصیت خودت رو بساز،
+                مسیرت رو انتخاب کن و داستان منحصربه‌فردت رو
+                در دنیای SA-MP آغاز کن.
+            </p>
 
-    <script>
-        function copyIP() {
-            const ip = "Play.SampSv.IR:7413";
+            <div class="buttons">
+                <a href="#join" class="btn btn-gold">🚀 ورود به شهر</a>
+                <a href="#features" class="btn btn-outline">مشاهده امکانات</a>
+            </div>
+        </div>
 
-            if (navigator.clipboard &&
-                window.isSecureContext) {
+        <div class="server-card">
+            <div class="server-logo">C</div>
 
-                navigator.clipboard.writeText(ip)
-                    .then(function () {
-                        document.getElementById("message")
-                            .textContent = "آی‌پی کپی شد!";
-                    })
-                    .catch(function () {
-                        showIP(ip);
-                    });
+            <h2>Clarck Role Play</h2>
+            <p class="subtitle">SA-MP • Roleplay Community</p>
 
-            } else {
-                showIP(ip);
-            }
-        }
+            <div class="ip-box">
+                <code id="serverIp">Play.SampSv.IR:7413</code>
+                <button class="copy-btn" onclick="copyIP()">کپی IP</button>
+            </div>
 
-        function showIP(ip) {
-            document.getElementById("message")
-                .textContent = "آی‌پی سرور: " + ip;
-        }
-    </script>
+            <div class="stats">
+                <div class="stat">
+                    <strong>24/7</strong>
+                    <small>سایت آنلاین</small>
+                </div>
+
+                <div class="stat">
+                    <strong>SA-MP</strong>
+                    <small>نوع بازی</small>
+                </div>
+
+                <div class="stat">
+                    <strong>IR</strong>
+                    <small>جامعه فارسی</small>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section id="features">
+    <div class="container">
+        <div class="section-title">
+            <span>امکانات سرور</span>
+            <h2>شهر تو، داستان تو</h2>
+            <p>تجربه‌ای متفاوت در دنیای رول‌پلی کلرک.</p>
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <div class="icon">🎭</div>
+                <h3>رول‌پلی واقعی</h3>
+                <p>شخصیت خودت رو بساز و داستان خودت رو در شهر شکل بده.</p>
+            </div>
+
+            <div class="feature">
+                <div class="icon">🚘</div>
+                <h3>ماشین‌ها</h3>
+                <p>در شهر گشت‌وگذار کن و تجربه رانندگی داشته باش.</p>
+            </div>
+
+            <div class="feature">
+                <div class="icon">💼</div>
+                <h3>شغل و پیشرفت</h3>
+                <p>مسیر خودت رو انتخاب کن و برای پیشرفت تلاش کن.</p>
+            </div>
+
+            <div class="feature">
+                <div class="icon">👥</div>
+                <h3>جامعه بازیکنان</h3>
+                <p>با بازیکنان دیگر تعامل داشته باش و گروه تشکیل بده.</p>
+            </div>
+
+            <div class="feature">
+                <div class="icon">🛡️</div>
+                <h3>قوانین سرور</h3>
+                <p>با رعایت قوانین، به ساختن محیطی بهتر کمک کن.</p>
+            </div>
+
+            <div class="feature">
+                <div class="icon">✨</div>
+                <h3>اخبار و آپدیت‌ها</h3>
+                <p>اطلاعیه‌ها و تغییرات جدید سرور رو دنبال کن.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="join">
+    <div class="container">
+        <div class="join-box">
+            <div>
+                <h2>آماده‌ای وارد شهر بشی؟</h2>
+                <p>آی‌پی سرور رو کپی کن و با کلاینت سازگار وارد شو.</p>
+            </div>
+
+            <div class="buttons">
+                <button class="btn btn-gold" onclick="copyIP()">کپی IP سرور</button>
+
+                <a class="btn btn-outline"
+                   href="https://panel.extormsamp.ir/clarcksampir"
+                   target="_blank" rel="noopener">
+                   فروشگاه سرور ↗
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="shop">
+    <div class="container">
+        <div class="section-title">
+            <span>فروشگاه رسمی</span>
+            <h2>فروشگاه Clarck</h2>
+            <p>برای مشاهده فروشگاه روی دکمه زیر بزن.</p>
+        </div>
+
+        <div class="shop-grid">
+            <div class="shop-card">
+                <h3>🛒 فروشگاه سرور</h3>
+                <p>مشاهده محصولات و گزینه‌های موجود در پنل فروشگاه.</p>
+
+                <a class="btn btn-gold"
+                   href="https://panel.extormsamp.ir/clarcksampir"
+                   target="_blank" rel="noopener">
+                   ورود به فروشگاه
+                </a>
+            </div>
+
+            <div class="shop-card">
+                <h3>📢 اخبار و اطلاعیه‌ها</h3>
+                <p>اطلاعیه‌های تازه سرور رو از کانال‌های رسمی دنبال کن.</p>
+                <a class="btn btn-outline" href="#faq">راهنما</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="faq">
+    <div class="container">
+        <div class="section-title">
+            <span>راهنما</span>
+            <h2>سؤالات متداول</h2>
+        </div>
+
+        <div class="faq">
+            <details>
+                <summary>چطور آی‌پی سرور رو کپی کنم؟</summary>
+                <p>روی دکمه کپی IP بزن. اگر کار نکرد، آی‌پی رو دستی کپی کن.</p>
+            </details>
+
+            <details>
+                <summary>برای ورود به سرور به چی نیاز دارم؟</summary>
+                <p>به کلاینت سازگار با SA-MP و آی‌پی سرور نیاز داری.</p>
+            </details>
+
+            <details>
+                <summary>چطور وارد فروشگاه بشم؟</summary>
+                <p>از بخش فروشگاه روی دکمه ورود به فروشگاه بزن.</p>
+            </details>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <div class="container">
+        © <span id="year"></span>
+        <strong>Clarck Role Play</strong>
+        — تمامی حقوق محفوظ است.
+    </div>
+</footer>
+
+<div class="toast" id="toast">آی‌پی سرور کپی شد!</div>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+function copyIP() {
+    const ip = document.getElementById("serverIp").textContent.trim();
+
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(ip)
+            .then(showToast)
+            .catch(() => fallbackCopy(ip));
+    } else {
+        fallbackCopy(ip);
+    }
+}
+
+function fallbackCopy(text) {
+    const area = document.createElement("textarea");
+    area.value = text;
+    area.style.position = "fixed";
+    area.style.opacity = "0";
+
+    document.body.appendChild(area);
+    area.select();
+
+    try {
+        document.execCommand("copy");
+        showToast();
+    } catch (error) {
+        alert("آی‌پی سرور: " + text);
+    }
+
+    document.body.removeChild(area);
+}
+
+function showToast() {
+    const toast = document.getElementById("toast");
+    toast.classList.add("show");
+
+    setTimeout(function () {
+        toast.classList.remove("show");
+    }, 1800);
+}
+</script>
 
 </body>
 </html>
