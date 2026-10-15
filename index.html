@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b0d13">
+
+<title>Clarck Role Play | سرور سمپ</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --gold: #f5bd4f;
+    --blue: #00aaff;
+    --bg: #0b0d13;
+    --panel: #151a25;
+    --muted: #aab1c2;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: white;
+    font-family: Tahoma, Arial, sans-serif;
+    line-height: 1.8;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 92%;
+    max-width: 1150px;
+    margin: auto;
+}
+
+/* HEADER */
+
+header {
+    background: #10131bf5;
+    border-bottom: 1px solid #292e3b;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav {
+    min-height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.logo-icon {
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, #ffdf91, #b77918);
+    color: #17120a;
+    border-radius: 13px;
+    font-size: 25px;
+}
+
+.logo small {
+    display: block;
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 18px;
+    font-size: 12px;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+/* BUTTONS */
+
+.btn {
+    display: inline-block;
+    padding: 11px 16px;
+    border-radius: 9px;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+    transition: .2s;
+}
+
+.btn-gold {
+    background: var(--gold);
+    color: #17120a;
+}
+
+.btn-gold:hover {
+    background: #ffd477;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    border: 1px solid #555b69;
+    color: white;
+    background: transparent;
+}
+
+.btn-outline:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+    transform: translateY(-2px);
+}
+
+.btn-forum {
+    background: #087db5;
+    border: 1px solid #16baff;
+    color: white;
+}
+
+.btn-forum:hover {
+    background: #009ee8;
+    transform: translateY(-2px);
+}
+
+/* HERO */
+
+.hero {
+    padding: 80px 0;
+    background:
+        radial-gradient(ellipse at 80% 20%, #a66e2630, transparent 40%),
+        linear-gradient(135deg, #141925, #0b0d13);
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 12px;
+    color: var(--gold);
+    border: 1px solid #f5bd4f55;
+    border-radius: 30px;
+    font-size: 12px;
+}
+
+h1 {
+    font-size: clamp(34px, 5vw, 60px);
+    line-height: 1.4;
+    margin: 20px 0;
+}
+
+h1 span {
+    color: var(--gold);
+}
+
+.hero p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 2.2;
+}
+
+.buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+/* SERVER CARD */
+
+.server-card {
+    background: linear-gradient(145deg, #202637, #121620);
+    border: 1px solid #343b4c;
+    border-radius: 20px;
+    padding: 27px;
+    box-shadow: 0 20px 60px #0005;
+}
+
+.server-logo {
+    width: 65px;
+    height: 65px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, #ffdf91, #b77918);
+    color: #17120a;
+    border-radius: 18px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.server-card h2 {
+    margin-top: 20px;
+    font-size: 24px;
+}
+
+.subtitle {
+    color: var(--muted);
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.ip-box {
+    background: #090b10;
+    border: 1px solid #343b4c;
+    padding: 12px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    direction: ltr;
+}
+
+.ip-box code {
+    color: var(--gold);
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.copy-btn {
+    padding: 8px 10px;
+    border: none;
+    border-radius: 6px;
+    background: #303748;
+    color: white;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.stat {
+    background: #ffffff08;
+    border: 1px solid #ffffff12;
+    border-radius: 10px;
+    text-align: center;
+    padding: 12px 5px;
+}
+
+.stat strong {
+    display: block;
+    color: var(--gold);
+    font-size: 17px;
+}
+
+.stat small {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+/* SECTIONS */
+
+section {
+    padding: 70px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-title span {
+    color: var(--gold);
+    font-size: 12px;
+}
+
+.section-title h2 {
+    font-size: 32px;
+    margin: 8px 0;
+}
+
+.section-title p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* FEATURES */
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 17px;
+}
+
+.feature {
+    background: var(--panel);
+    border: 1px solid #2b3242;
+    padding: 23px;
+    border-radius: 15px;
+    transition: .2s;
+}
+
+.feature:hover {
+    transform: translateY(-4px);
+    border-color: var(--gold);
+}
+
+.feature .icon {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.feature h3 {
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.feature p {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 2;
+}
+
+/* JOIN */
+
+.join-box {
+    background: linear-gradient(120deg, #1c202b, #151923);
+    border: 1px solid #5a482a;
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.join-box h2 {
+    font-size: 25px;
+}
+
+.join-box p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* SHOP */
+
+.shop-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.shop-card {
+    background: var(--panel);
+    border: 1px solid #2b3242;
+    border-radius: 15px;
+    padding: 23px;
+}
+
+.shop-card h3 {
+    margin-bottom: 8px;
+}
+
+.shop-card p {
+    color: var(--muted);
+    font-size: 12px;
+    margin-bottom: 18px;
+}
+
+/* FAQ */
+
+.faq {
+    max-width: 800px;
+    margin: auto;
+}
+
+details {
+    background: var(--panel);
+    border: 1px solid #2b3242;
+    border-radius: 12px;
+    padding: 17px;
+    margin-bottom: 12px;
+}
+
+summary {
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+details p {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 12px;
+}
+
+/* FOOTER */
+
+footer {
+    border-top: 1px solid #292e3b;
+    padding: 25px 0;
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+footer strong {
+    color: var(--gold);
+}
+
+/* TOAST */
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gold);
+    color: #17120a;
+    padding: 10px 18px;
+    border-radius: 9px;
+    font-size: 12px;
+    font-weight: bold;
+    display: none;
+    z-index: 200;
+}
+
+.toast.show {
+    display: block;
+}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+    .nav-links {
+        display: none;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+    }
+
+    .features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .join-box {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 520px) {
+    .features,
+    .shop-grid {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 50px 0;
+    }
+
+    .section-title h2 {
+        font-size: 26px;
+    }
+
+    .server-card {
+        padding: 20px;
+    }
+
+    nav {
+        gap: 8px;
+    }
+
+    nav > .btn {
+        padding: 9px 10px;
+        font-size: 11px;
+    }
+
+    .logo {
+        font-size: 12px;
+        gap: 7px;
+    }
+
+    .logo-icon {
+        width: 38px;
+        height: 38px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+
+            <a href="#home" class="logo">
+                <span class="logo-icon">C</span>
+                <span>
+                    CLARCK ROLE PLAY
+                    <small>YOUR STORY. YOUR CITY.</small>
+                </span>
+            </a>
+
+            <div class="nav-links">
+                <a href="#home">خانه</a>
+                <a href="#features">امکانات</a>
+                <a href="#join">ورود به سرور</a>
+                <a href="#shop">فروشگاه</a>
+                <a href="#faq">سؤالات</a>
+            </div>
+
+            <!-- دکمه ورود به فروم در منوی بالا -->
+            <a
+                class="btn btn-forum"
+                href="https://maniclarck71-commits.github.io/Forum.ClarckRp/"
+                target="_blank"
+                rel="noopener noreferrer">
+                💬 ورود به فروم
+            </a>
+
+        </nav>
+    </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+    <div class="container hero-content">
+
+        <div>
+            <span class="badge">دنیای رول‌پلی کلرک</span>
+
+            <h1>
+                داستانت رو بساز<br>
+                در <span>Clarck Role Play</span>
+            </h1>
+
+            <p>
+                به شهر کلرک خوش اومدی! شخصیت خودت رو بساز،
+                مسیرت رو انتخاب کن و داستان منحصربه‌فردت رو
+                در دنیای SA-MP آغاز کن.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#join" class="btn btn-gold">
+                    🚀 ورود به شهر
+                </a>
+
+                <a href="#features" class="btn btn-outline">
+                    مشاهده امکانات
+                </a>
+
+                <!-- دکمه ورود به فروم در صفحه اصلی -->
+                <a
+                    href="https://maniclarck71-commits.github.io/Forum.ClarckRp/"
+                    class="btn btn-forum"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    💬 ورود به فروم
+                </a>
+
+            </div>
+        </div>
+
+        <div class="server-card">
+
+            <div class="server-logo">C</div>
+
+            <h2>Clarck Role Play</h2>
+            <p class="subtitle">SA-MP • Roleplay Community</p>
+
+            <div class="ip-box">
+                <code id="serverIp">Play.SampSv.IR:7413</code>
+
+                <button class="copy-btn" onclick="copyIP()">
+                    کپی IP
+                </button>
+            </div>
+
+            <div class="stats">
+
+                <div class="stat">
+                    <strong>24/7</strong>
+                    <small>دسترسی آنلاین</small>
+                </div>
+
+                <div class="stat">
+                    <strong>SA-MP</strong>
+                    <small>نوع بازی</small>
+                </div>
+
+                <div class="stat">
+                    <strong>IR</strong>
+                    <small>جامعه فارسی</small>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- FEATURES -->
+
+<section id="features">
+    <div class="container">
+
+        <div class="section-title">
+            <span>امکانات سرور</span>
+            <h2>شهر تو، داستان تو</h2>
+            <p>تجربه‌ای متفاوت در دنیای رول‌پلی کلرک.</p>
+        </div>
+
+        <div class="features">
+
+            <div class="feature">
+                <div class="icon">🎭</div>
+                <h3>رول‌پلی واقعی</h3>
+                <p>شخصیت خودت رو بساز و داستان خودت رو در شهر شکل بده.</p>
+            </div>
+
+            <div class="feature">
+                <div class="icon">🚘</div>
+                <h3>ماشین‌ها</h3>
+                <p>در شهر گشت‌وگذار کن و تجربه رانندگی داشته باش.</p>
+            </div>
+
+            <div class="feature">
+                <div class="icon">💼</div>
+                <h3>شغل و پیشرفت</h3>
+                <p>مسیر خودت رو انتخاب کن و برای پیشرفت تلاش کن.</p>
+            </div>
+
+            <div class="feature">
+                <div class="icon">👥</div>
+                <h3>جامعه بازیکنان</h3>
+                <p>با بازیکنان دیگر تعامل داشته باش و گروه تشکیل بده.</p>
+            </div>
+
+            <div class="feature">
+                <div class="icon">🛡️</div>
+                <h3>قوانین سرور</h3>
+                <p>با رعایت قوانین به ساختن محیطی بهتر کمک کن.</p>
+            </div>
+
+            <div class="feature">
+                <div class="icon">✨</div>
+                <h3>اخبار و آپدیت‌ها</h3>
+                <p>اطلاعیه‌ها و تغییرات جدید سرور رو دنبال کن.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- JOIN SERVER -->
+
+<section id="join">
+    <div class="container">
+
+        <div class="join-box">
+
+            <div>
+                <h2>آماده‌ای وارد شهر بشی؟</h2>
+                <p>آی‌پی سرور رو کپی کن و با کلاینت سازگار وارد شو.</p>
+            </div>
+
+            <div class="buttons">
+
+                <button class="btn btn-gold" onclick="copyIP()">
+                    کپی IP سرور
+                </button>
+
+                <a
+                    class="btn btn-outline"
+                    href="https://panel.extormsamp.ir/clarcksampir"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    فروشگاه سرور ↗
+                </a>
+
+                <a
+                    class="btn btn-forum"
+                    href="https://maniclarck71-commits.github.io/Forum.ClarckRp/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    💬 ورود به فروم
+                </a>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SHOP -->
+
+<section id="shop">
+    <div class="container">
+
+        <div class="section-title">
+            <span>فروشگاه رسمی</span>
+            <h2>فروشگاه Clarck</h2>
+            <p>برای مشاهده فروشگاه روی دکمه زیر بزن.</p>
+        </div>
+
+        <div class="shop-grid">
+
+            <div class="shop-card">
+                <h3>🛒 فروشگاه سرور</h3>
+                <p>مشاهده محصولات و گزینه‌های موجود در پنل فروشگاه.</p>
+
+                <a
+                    class="btn btn-gold"
+                    href="https://panel.extormsamp.ir/clarcksampir"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    ورود به فروشگاه
+                </a>
+            </div>
+
+            <div class="shop-card">
+                <h3>💬 فروم کامیونیتی</h3>
+                <p>برای گفتگو و دنبال‌کردن موضوعات وارد فروم سرور شو.</p>
+
+                <a
+                    class="btn btn-forum"
+                    href="https://maniclarck71-commits.github.io/Forum.ClarckRp/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    ورود به فروم
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+
+<section id="faq">
+    <div class="container">
+
+        <div class="section-title">
+            <span>راهنما</span>
+            <h2>سؤالات متداول</h2>
+        </div>
+
+        <div class="faq">
+
+            <details>
+                <summary>چطور آی‌پی سرور رو کپی کنم؟</summary>
+                <p>روی دکمه کپی IP بزن. اگر کار نکرد، آی‌پی رو دستی کپی کن.</p>
+            </details>
+
+            <details>
+                <summary>برای ورود به سرور به چی نیاز دارم؟</summary>
+                <p>به کلاینت سازگار با SA-MP و آی‌پی سرور نیاز داری.</p>
+            </details>
+
+            <details>
+                <summary>چطور وارد فروشگاه بشم؟</summary>
+                <p>از بخش فروشگاه روی دکمه ورود به فروشگاه بزن.</p>
+            </details>
+
+            <details>
+                <summary>چطور وارد فروم Clarck بشم؟</summary>
+                <p>روی یکی از دکمه‌های ورود به فروم در سایت بزن.</p>
+            </details>
+
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+    <div class="container">
+        © <span id="year"></span>
+        <strong>Clarck Role Play</strong>
+        — تمامی حقوق محفوظ است.
+    </div>
+</footer>
+
+<div class="toast" id="toast">
+    آی‌پی سرور کپی شد!
+</div>
+
+<script>
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+function copyIP() {
+    const ip = document.getElementById("serverIp").textContent.trim();
+
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(ip)
+            .then(showToast)
+            .catch(function() {
+                fallbackCopy(ip);
+            });
+    } else {
+        fallbackCopy(ip);
+    }
+}
+
+function fallbackCopy(text) {
+    const area = document.createElement("textarea");
+
+    area.value = text;
+    area.style.position = "fixed";
+    area.style.opacity = "0";
+
+    document.body.appendChild(area);
+    area.select();
+
+    try {
+        const success = document.execCommand("copy");
+
+        if (success) {
+            showToast();
+        } else {
+            alert("آی‌پی سرور: " + text);
+        }
+    } catch (error) {
+        alert("آی‌پی سرور: " + text);
+    }
+
+    document.body.removeChild(area);
+}
+
+function showToast() {
+    const toast = document.getElementById("toast");
+
+    toast.classList.add("show");
+
+    setTimeout(function() {
+        toast.classList.remove("show");
+    }, 1800);
+}
+</script>
+
+</body>
+</html>
